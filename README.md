@@ -141,7 +141,7 @@ Full agent instruction file available at: [`/llms.txt`](https://raw.githubuserco
 
 ---
 
-## Security & Verification Doctrine (SCAR-027)
+## Sovereign Security & Preflight Doctrine
 
 ZION repositories enforce strict sovereign publication barriers:
 - **Zero Personal Data Leakage**: No private email addresses, local absolute paths, or machine hostnames exist in public trees.
