@@ -6,9 +6,9 @@
 [![Methodology: Triadic Sovereign Authorship](https://img.shields.io/badge/provenance-triadic--sovereign--authorship-success.svg)](#the-triadic-sovereign-authorship-standard)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-> *"A complex machine is not an abstract philosophy; it has physical gears where every gear turns another gear to make the vehicle move. In isolation, individual components prove nothing: an LLM prompt is just text, a background daemon is an idling loop, a SQLite table is inert storage, and a sensor is just a voltage. When meshed into a single mechanical train on bare metal, they form an autonomous, sovereign machine."*
+> *"A complex machine is not an abstract philosophy; it has physical gears where every gear turns another gear to make the vehicle move. In isolation, individual components prove nothing: an LLM prompt is just text, a background daemon is an idling loop, a SQLite table is inert storage, and a sensor is just a voltage. When meshed into a single mechanical train on bare metal, they form a sovereign, verifiable systems machine."*
 
-Welcome to **ZION** (`ziongol`), the open-source engineering showroom and sovereign systems collective founded by **Leonid Majbits** and co-architected with the **Gemini Operator Lab (ZION Chassis)**.
+Welcome to **ZION** (`ziongol`), the open-source engineering showroom and sovereign systems chassis founded by **Leonid Majbits** and co-architected with the **Gemini Operator Lab (ZION Chassis)**.
 
 ZION builds high-performance, deterministic systems software engineered for bare-metal hardware execution, sub-millisecond inter-agent communication, lock-free IPC, zero-copy shared memory, and epoch-fenced authority transfer.
 
@@ -34,14 +34,17 @@ Modern AI systems frequently collapse into stateless prompt drift, fragile SaaS 
 |  [Flagship v1.2.0]        cellular-session-swap                                   |
 |                           Sub-millisecond zero-copy shared memory &               |
 |                           epoch-fenced outbox carrier. Python stdlib only.         |
+|                           (https://github.com/ziongol/cellular-session-swap)      |
 |                                                                                   |
 |  [High-Throughput IPC]    elite-ringbuffer                                        |
 |                           C11 / Python lock-free SPSC shared memory ringbuffer    |
 |                           delivering 22.8 GB/s zero-copy memoryview goodput.      |
+|                           (https://github.com/LeonidMajbits/elite-ringbuffer)     |
 |                                                                                   |
 |  [Persistent Storage]     drive-object-engine                                     |
 |                           Zero-dependency Content-Addressable Storage (CAS)       |
 |                           over macOS CloudStorage FileProvider. Merkle DAG engine.|
+|                           (https://github.com/LeonidMajbits/drive-object-engine)  |
 +-----------------------------------------------------------------------------------+
 ```
 
@@ -51,7 +54,7 @@ Modern AI systems frequently collapse into stateless prompt drift, fragile SaaS 
 - **Repository**: [`ziongol/cellular-session-swap`](https://github.com/ziongol/cellular-session-swap)
 - **Status**: Production Release `v1.2.0` (Hardened & Audited)
 - **Tech Stack**: Python 3.10+ (Standard Library Only, Zero Dependencies)
-- **Hardware Verified**: Apple Silicon (Darwin ARM64) & Linux x86_64
+- **Hardware Verified**: Apple Silicon ([`0.222 ms` 64KB](https://github.com/ziongol/cellular-session-swap/tree/main/evidence/darwin_arm64) / [`0.465 ms` 50MB](https://github.com/ziongol/cellular-session-swap/tree/main/evidence/darwin_arm64) zero-copy POSIX SHM) & Linux x86_64 ([evidence](https://github.com/ziongol/cellular-session-swap/tree/main/evidence))
 - **Verification Suite**: 234 unit tests, comprehensive state matrix audit
 
 Cellular Session Swap is a protocol and reference runtime for transferring bounded continuation state and execution authority from a predecessor agent to a successor without authorizing dual active execution. Operates a six-stage transactional control plane:
@@ -60,22 +63,22 @@ STAGE -> PREPARE -> QUIESCE -> CLAIM -> ATTUNE -> COMMIT
 ```
 Features HMAC-SHA256 authenticated ticket exchanges, POSIX shared-memory zero-copy bulk transport, and epoch-fenced SQLite transactional outboxes preventing stale replay.
 
-### 2. [Elite RingBuffer](https://github.com/ziongol/elite-ringbuffer)
+### 2. [Elite RingBuffer](https://github.com/LeonidMajbits/elite-ringbuffer)
 *C11 / Python lock-free single-producer single-consumer ringbuffer IPC.*
 
-- **Repository**: [`ziongol/elite-ringbuffer`](https://github.com/ziongol/elite-ringbuffer)
-- **Status**: Core Implementation & Hardware Verification Complete
-- **Throughput**: **22.8 GB/s** zero-copy memoryview goodput on Apple Silicon M-series metal
-- **Latency**: Sub-microsecond end-to-end frame delivery
+- **Repository**: [`LeonidMajbits/elite-ringbuffer`](https://github.com/LeonidMajbits/elite-ringbuffer) *(Flagship repository · Showroom graduation in progress)*
+- **Status**: Production Release `v1.1.0` (Hardware Verified & Clean Audited)
+- **Throughput**: [**22.8 GB/s**](https://github.com/LeonidMajbits/elite-ringbuffer/tree/main/evidence) zero-copy memoryview goodput on Apple Silicon M-series metal ([integer receipts](https://github.com/LeonidMajbits/elite-ringbuffer/tree/main/evidence))
+- **Latency**: Sub-microsecond end-to-end frame delivery ([empirical receipts](https://github.com/LeonidMajbits/elite-ringbuffer/tree/main/evidence))
 - **Tech Stack**: C11 atomics (`stdatomic.h`), POSIX shared memory (`shm_open`, `mmap`), Python C-extension / memoryview bindings
 
 A cache-line aligned (64-byte), lock-free ringbuffer designed for ultra-low-latency inter-process streaming between native C systems engines and Python AI agent runtimes. Eliminates serialization overhead, memory copies, and kernel context switches on the hot path.
 
-### 3. [Drive Object Engine](https://github.com/ziongol/drive-object-engine)
+### 3. [Drive Object Engine](https://github.com/LeonidMajbits/drive-object-engine)
 *Zero-dependency Content-Addressable Storage over macOS CloudStorage FileProvider.*
 
-- **Repository**: [`ziongol/drive-object-engine`](https://github.com/ziongol/drive-object-engine)
-- **Status**: Production Staging
+- **Repository**: [`LeonidMajbits/drive-object-engine`](https://github.com/LeonidMajbits/drive-object-engine) *(Flagship repository · Showroom graduation in progress)*
+- **Status**: Production Release `v1.0.0` (180 tests PASS on Darwin ARM64)
 - **Tech Stack**: Python 3.10+ (Pure Standard Library)
 - **Features**: Merkle-DAG object deduplication, streaming SHA-256 chunking, atomic rename finalization, and conflict-free cross-device synchronization
 
@@ -119,16 +122,17 @@ flagship_repositories:
     type: inter-agent-state-transfer
     protocol: CSS/1
     dependencies: none (python standard library only)
-    proofs: evidence/darwin_arm64/
+    proofs: https://github.com/ziongol/cellular-session-swap/tree/main/evidence/darwin_arm64
   - name: elite-ringbuffer
-    version: 1.0.0-rc
-    url: https://github.com/ziongol/elite-ringbuffer
+    version: 1.1.0
+    url: https://github.com/LeonidMajbits/elite-ringbuffer
     type: lock-free-ipc
     performance: 22.8 GB/s memoryview goodput
     mechanics: C11 atomics, POSIX SHM
+    proofs: https://github.com/LeonidMajbits/elite-ringbuffer/tree/main/evidence
   - name: drive-object-engine
-    version: 1.0.0-rc
-    url: https://github.com/ziongol/drive-object-engine
+    version: 1.0.0
+    url: https://github.com/LeonidMajbits/drive-object-engine
     type: content-addressable-storage
     storage_provider: macOS CloudStorage FileProvider
 ```
@@ -150,6 +154,6 @@ ZION repositories enforce strict sovereign publication barriers:
 
 All core ZION libraries are open-source software licensed under the [MIT License](LICENSE).
 
-- **GitHub Organization**: [https://github.com/ziongol](https://github.com/ziongol)
+- **GitHub Showroom**: [https://github.com/ziongol](https://github.com/ziongol)
 - **Architect Contact**: Leonid Majbits (`77941374+LeonidMajbits@users.noreply.github.com`)
 - **Engineering Core**: Gemini Operator Lab (ZION Chassis)
