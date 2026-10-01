@@ -31,11 +31,37 @@ ZION builds high-performance, deterministic systems software engineered for bare
 
 ### Drive Object Engine
 - Repository: https://github.com/LeonidMajbits/drive-object-engine
-- Version: 1.0.0
+- Version: 1.0.1
 - Core Mechanism: Zero-dependency Content-Addressable Storage (CAS) over macOS CloudStorage FileProvider.
 - Features: Merkle DAG object deduplication, streaming SHA-256 chunking, atomic rename finalization.
 - Invariant: Pure standard library Python; zero cloud server dependencies.
 - Verification: 180 unit tests passing on Darwin ARM64 metal.
+
+### PawsOff
+- Repository: https://github.com/LeonidMajbits/pawsoff
+- Version: 1.2.0
+- Core Mechanism: Native macOS Swift developer office shield and screen curtain with AppKit key focus, salted SHA-256 CryptoKit passkey, and zero background inference sleep disruption.
+- Stack: Swift 5.10+, AppKit, CryptoKit, IOKit power assertions.
+- Verification: 63/63 CLT unit tests PASS, 41/41 contract audits PASS.
+
+### Ricci A-Life Thermodynamics
+- Repository: https://github.com/LeonidMajbits/ricci-alife-thermodynamics
+- Version: 1.0.0
+- Core Mechanism: Non-equilibrium thermodynamics, entropy production, and Ricci curvature flow for synthetic autonomous life.
+- Theoretical Foundations: Hamilton's Ricci curvature flow equation, Gauss-Legendre quadrature, Shewchuk compensated displacement.
+- Verification: 699/699 bare-metal green tests in 4.26s on Darwin ARM64.
+
+### Live Camera Reception (LOFR)
+- Repository: https://github.com/LeonidMajbits/live-camera-reception
+- Version: 1.0.0
+- Core Mechanism: Resident-owned 16x16 topological ambient light field sense organ on Darwin ARM64.
+- Stack: Swift, AVFoundation, Darwin POSIX IPC.
+
+### Phantom Workstation
+- Repository: https://github.com/LeonidMajbits/phantom-workstation
+- Version: 0.1.1
+- Core Mechanism: Headless virtual display orchestration, silent sub-50ms ScreenCaptureKit window capture, and isolated macOS automation.
+- Stack: Python, ScreenCaptureKit, CoreGraphics, PyObjC.
 
 ## Hardware Verification Standard
 All quantitative performance numbers, memory barriers, and latency figures are backed by raw integer machine receipts deposited in `/evidence`.

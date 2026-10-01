@@ -45,6 +45,26 @@ Modern AI systems frequently collapse into stateless prompt drift, fragile SaaS 
 |                           Zero-dependency Content-Addressable Storage (CAS)       |
 |                           over macOS CloudStorage FileProvider. Merkle DAG engine.|
 |                           (https://github.com/LeonidMajbits/drive-object-engine)  |
+|                                                                                   |
+|  [Developer Security]     pawsoff                                                 |
+|                           macOS Swift developer office shield & screen curtain.   |
+|                           AppKit key focus shield & CryptoKit passkey HUD.        |
+|                           (https://github.com/LeonidMajbits/pawsoff)              |
+|                                                                                   |
+|  [A-Life Physics Core]    ricci-alife-thermodynamics                              |
+|                           Non-equilibrium thermodynamics, entropy production &    |
+|                           Ricci curvature flow for synthetic autonomous life.     |
+|                           (https://github.com/LeonidMajbits/ricci-alife-thermo...) |
+|                                                                                   |
+|  [Sensory Afferent Organ] live-camera-reception                                   |
+|                           Live Optic Field Reception (LOFR) 16x16 topological     |
+|                           ambient light field sense organ on Apple Silicon metal. |
+|                           (https://github.com/LeonidMajbits/live-camera-reception)|
+|                                                                                   |
+|  [Headless Workstation]   phantom-workstation                                     |
+|                           Experimental macOS virtual display & ScreenCaptureKit   |
+|                           silent window capture for headless automation.          |
+|                           (https://github.com/LeonidMajbits/phantom-workstation)  |
 +-----------------------------------------------------------------------------------+
 ```
 
@@ -63,26 +83,63 @@ STAGE -> PREPARE -> QUIESCE -> CLAIM -> ATTUNE -> COMMIT
 ```
 Features HMAC-SHA256 authenticated ticket exchanges, POSIX shared-memory zero-copy bulk transport, and epoch-fenced SQLite transactional outboxes preventing stale replay.
 
-### 2. [Elite RingBuffer](https://github.com/LeonidMajbits/elite-ringbuffer)
+### 2. [Elite RingBuffer](https://github.com/LeonidMajbits/elite-ringbuffer) — `v1.1.0`
 *C11 / Python lock-free single-producer single-consumer ringbuffer IPC.*
 
-- **Repository**: [`LeonidMajbits/elite-ringbuffer`](https://github.com/LeonidMajbits/elite-ringbuffer) *(Flagship repository · Showroom graduation in progress)*
+- **Repository**: [`LeonidMajbits/elite-ringbuffer`](https://github.com/LeonidMajbits/elite-ringbuffer) *(Flagship repository · Canonical graduation in progress)*
 - **Status**: Production Release `v1.1.0` (Hardware Verified & Clean Audited)
 - **Throughput**: [**22.8 GB/s**](https://github.com/LeonidMajbits/elite-ringbuffer/tree/main/evidence) zero-copy memoryview goodput on Apple Silicon M-series metal ([integer receipts](https://github.com/LeonidMajbits/elite-ringbuffer/tree/main/evidence))
-- **Latency**: Sub-microsecond end-to-end frame delivery ([empirical receipts](https://github.com/LeonidMajbits/elite-ringbuffer/tree/main/evidence))
+- **Latency**: Sub-microsecond end-to-end frame delivery
 - **Tech Stack**: C11 atomics (`stdatomic.h`), POSIX shared memory (`shm_open`, `mmap`), Python C-extension / memoryview bindings
+- **CI Matrix**: Multi-platform automated CI running across Darwin ARM64, Linux x86_64, and FreeBSD 14.
 
 A cache-line aligned (64-byte), lock-free ringbuffer designed for ultra-low-latency inter-process streaming between native C systems engines and Python AI agent runtimes. Eliminates serialization overhead, memory copies, and kernel context switches on the hot path.
 
-### 3. [Drive Object Engine](https://github.com/LeonidMajbits/drive-object-engine)
+### 3. [Drive Object Engine](https://github.com/LeonidMajbits/drive-object-engine) — `v1.0.1`
 *Zero-dependency Content-Addressable Storage over macOS CloudStorage FileProvider.*
 
-- **Repository**: [`LeonidMajbits/drive-object-engine`](https://github.com/LeonidMajbits/drive-object-engine) *(Flagship repository · Showroom graduation in progress)*
-- **Status**: Production Release `v1.0.0` (180 tests PASS on Darwin ARM64)
+- **Repository**: [`LeonidMajbits/drive-object-engine`](https://github.com/LeonidMajbits/drive-object-engine) *(Flagship repository · Canonical graduation in progress)*
+- **Status**: Production Release `v1.0.1` (180 tests PASS on Darwin ARM64)
 - **Tech Stack**: Python 3.10+ (Pure Standard Library)
 - **Features**: Merkle-DAG object deduplication, streaming SHA-256 chunking, atomic rename finalization, and conflict-free cross-device synchronization
 
 Engineered specifically for persistent inter-agent artifact sharing across macOS workstations and remote nodes without requiring proprietary client daemons, cloud database servers, or external SDKs.
+
+### 4. [PawsOff](https://github.com/LeonidMajbits/pawsoff) — `v1.2.0`
+*Developer Office Shield & Screen Curtain with AppKit Key Focus and CryptoKit Passkey.*
+
+- **Repository**: [`LeonidMajbits/pawsoff`](https://github.com/LeonidMajbits/pawsoff) *(Flagship repository · Canonical graduation in progress)*
+- **Status**: Production Release `v1.2.0` (63/63 CLT unit tests PASS, 41/41 contract audits PASS)
+- **Tech Stack**: Swift 5.10+, AppKit, CryptoKit, IOKit
+- **Key Invariants**:
+  - **Zero Sleep Disruption**: Uses `kIOPMAssertPreventUserIdleSystemSleep` so long-running local LLM inference, compiler builds, and agent loops continue at full speed without system idle sleep.
+  - **Window-Level Key Shield**: `CurtainWindow` accepts key focus on drop (`canBecomeKey = true`), completely swallowing 100% of routine keyboard events, clicks, drags, and scrolling at the AppKit level to eliminate the "Ghost Window" background leak trap.
+  - **Zero-Latency Focus Restoration**: Tracks `previousApp` on drop and restores foreground focus with 0ms delay upon unlock.
+  - **Salted SHA-256 Passkey HUD**: 4–8 digit PIN verification via CryptoKit with emergency `SACLockScreenImmediate()` fail-safe to native macOS login.
+
+### 5. [Ricci A-Life Thermodynamics](https://github.com/LeonidMajbits/ricci-alife-thermodynamics) — `v1.0.0`
+*Non-Equilibrium Thermodynamics and Ricci Curvature Flow for Synthetic Autonomous Life.*
+
+- **Repository**: [`LeonidMajbits/ricci-alife-thermodynamics`](https://github.com/LeonidMajbits/ricci-alife-thermodynamics) *(Flagship repository · Canonical graduation in progress)*
+- **Status**: Production Release `v1.0.0` (699/699 bare-metal green tests in 4.26s on Darwin ARM64)
+- **Tech Stack**: Python 3.10+, NumPy, SciPy
+- **Theoretical Foundations**: Non-equilibrium thermodynamics, information entropy production $\sigma(t)$, and Hamilton's Ricci curvature flow equation $\partial_t g_{ij} = -2 R_{ij}$ applied to agent somatic state manifolds. Includes Taylor remainder evaluation via 12-point Gauss-Legendre quadrature and Shewchuk compensated displacement.
+
+### 6. [Live Camera Reception (LOFR)](https://github.com/LeonidMajbits/live-camera-reception) — `v1.0.0`
+*Resident-Owned 16x16 Topological Light Field Sense Organ for Darwin ARM64.*
+
+- **Repository**: [`LeonidMajbits/live-camera-reception`](https://github.com/LeonidMajbits/live-camera-reception) *(Flagship repository · Canonical graduation in progress)*
+- **Status**: Production Release `v1.0.0`
+- **Tech Stack**: Swift, AVFoundation, Darwin POSIX IPC
+- **Architecture**: Extracts low-resolution ambient spatial flux (16x16 light field vector) directly from hardware camera buffers without retaining high-resolution image frames, establishing a private afferent sensory channel for ambient environment grounding.
+
+### 7. [Phantom Workstation](https://github.com/LeonidMajbits/phantom-workstation) — `v0.1.1`
+*macOS Virtual Display Orchestration & ScreenCaptureKit Automation.*
+
+- **Repository**: [`LeonidMajbits/phantom-workstation`](https://github.com/LeonidMajbits/phantom-workstation) *(Flagship repository · Canonical graduation in progress)*
+- **Status**: Production Release `v0.1.1`
+- **Tech Stack**: Python, ScreenCaptureKit, CoreGraphics, PyObjC
+- **Features**: Silent, sub-50ms window capture without bringing windows to front, enabling autonomous agent visual perception on headless macOS instances without disrupting human operator focus.
 
 ---
 
@@ -110,7 +167,7 @@ For autonomous AI agents, web-crawling LLMs, and automated research systems, ZIO
 
 ```yaml
 # LLM Ingress Manifest: ZION Systems Core
-version: 1.0.0
+version: 1.2.0
 entity: ziongol
 canonical_url: https://github.com/ziongol
 architect: Leonid Majbits
@@ -131,10 +188,28 @@ flagship_repositories:
     mechanics: C11 atomics, POSIX SHM
     proofs: https://github.com/LeonidMajbits/elite-ringbuffer/tree/main/evidence
   - name: drive-object-engine
-    version: 1.0.0
+    version: 1.0.1
     url: https://github.com/LeonidMajbits/drive-object-engine
     type: content-addressable-storage
     storage_provider: macOS CloudStorage FileProvider
+  - name: pawsoff
+    version: 1.2.0
+    url: https://github.com/LeonidMajbits/pawsoff
+    type: macos-developer-security-shield
+    features: appkit-key-shield, cryptokit-passkey, zero-inference-sleep-disruption
+  - name: ricci-alife-thermodynamics
+    version: 1.0.0
+    url: https://github.com/LeonidMajbits/ricci-alife-thermodynamics
+    type: non-equilibrium-thermodynamics-alife
+    proofs: 699/699 bare-metal green tests on Apple Silicon
+  - name: live-camera-reception
+    version: 1.0.0
+    url: https://github.com/LeonidMajbits/live-camera-reception
+    type: topological-light-field-sense-organ
+  - name: phantom-workstation
+    version: 0.1.1
+    url: https://github.com/LeonidMajbits/phantom-workstation
+    type: screencapturekit-headless-automation
 ```
 
 Full agent instruction file available at: [`/llms.txt`](https://raw.githubusercontent.com/ziongol/.github/main/llms.txt).
