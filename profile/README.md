@@ -62,8 +62,8 @@ Modern AI systems frequently collapse into stateless prompt drift, fragile SaaS 
 |                           (https://github.com/LeonidMajbits/live-camera-reception)|
 |                                                                                   |
 |  [Headless Workstation]   phantom-workstation                                     |
-|                           Experimental macOS virtual display & ScreenCaptureKit   |
-|                           silent window capture for headless automation.          |
+|                           Experimental macOS virtual display (CGVirtualDisplay)   |
+|                           offscreen spaces & AXUIElement tree delta compressor.   |
 |                           (https://github.com/LeonidMajbits/phantom-workstation)  |
 +-----------------------------------------------------------------------------------+
 ```
@@ -93,7 +93,7 @@ Features HMAC-SHA256 authenticated ticket exchanges, POSIX shared-memory zero-co
 - **Tech Stack**: C11 atomics (`stdatomic.h`), POSIX shared memory (`shm_open`, `mmap`), Python C-extension / memoryview bindings
 - **CI Matrix**: Multi-platform automated CI running across Darwin ARM64, Linux x86_64, and FreeBSD 14.
 
-A cache-line aligned (64-byte), lock-free ringbuffer designed for ultra-low-latency inter-process streaming between native C systems engines and Python AI agent runtimes. Eliminates serialization overhead, memory copies, and kernel context switches on the hot path.
+A cache-line aligned (128-byte isolation cells matching Apple Silicon cache-line pair geometry), lock-free ringbuffer designed for ultra-low-latency inter-process streaming between native C systems engines and Python AI agent runtimes. Eliminates serialization overhead, memory copies, and kernel context switches on the hot path.
 
 ### 3. [Drive Object Engine](https://github.com/LeonidMajbits/drive-object-engine) — `v1.0.1`
 *Zero-dependency Content-Addressable Storage over macOS CloudStorage FileProvider.*
@@ -134,12 +134,12 @@ Engineered specifically for persistent inter-agent artifact sharing across macOS
 - **Architecture**: Extracts low-resolution ambient spatial flux (16x16 light field vector) directly from hardware camera buffers without retaining high-resolution image frames, establishing a private afferent sensory channel for ambient environment grounding.
 
 ### 7. [Phantom Workstation](https://github.com/LeonidMajbits/phantom-workstation) — `v0.1.1`
-*macOS Virtual Display Orchestration & ScreenCaptureKit Automation.*
+*macOS Virtual Display Utilities & Accessibility Tree Delta Compressor.*
 
 - **Repository**: [`LeonidMajbits/phantom-workstation`](https://github.com/LeonidMajbits/phantom-workstation) *(Flagship repository · Canonical graduation in progress)*
 - **Status**: Production Release `v0.1.1`
-- **Tech Stack**: Python, ScreenCaptureKit, CoreGraphics, PyObjC
-- **Features**: Silent, sub-50ms window capture without bringing windows to front, enabling autonomous agent visual perception on headless macOS instances without disrupting human operator focus.
+- **Tech Stack**: Python 3.9+, Objective-C (`CoreGraphics` / `CGVirtualDisplay`), AppKit
+- **Features**: Spawns isolated 1920x1080 virtual display spaces in RAM for non-disruptive offscreen window placement and diffs UI accessibility trees with heuristic token compression.
 
 ---
 
