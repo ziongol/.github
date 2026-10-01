@@ -25,11 +25,11 @@ Modern AI systems frequently collapse into stateless prompt drift, fragile SaaS 
 
 ---
 
-## Showroom & Flagship Systems Portfolio
+## Showroom & Flagship Systems Portfolio (Wave 1)
 
 ```text
 +-----------------------------------------------------------------------------------+
-|                                  ZION SHOWROOM                                    |
+|                        ZION SHOWROOM (WAVE 1 GRADUATION)                          |
 +-----------------------------------------------------------------------------------+
 |  [Flagship v1.2.0]        cellular-session-swap                                   |
 |                           Sub-millisecond zero-copy shared memory &               |
@@ -38,33 +38,18 @@ Modern AI systems frequently collapse into stateless prompt drift, fragile SaaS 
 |                                                                                   |
 |  [High-Throughput IPC]    elite-ringbuffer                                        |
 |                           C11 / Python lock-free SPSC shared memory ringbuffer    |
-|                           delivering 22.8 GB/s zero-copy memoryview goodput.      |
-|                           (https://github.com/LeonidMajbits/elite-ringbuffer)     |
+|                           delivering 22.8 GB/s [LAB_REPORTED] memoryview goodput. |
+|                           (https://github.com/ziongol/elite-ringbuffer)           |
 |                                                                                   |
 |  [Persistent Storage]     drive-object-engine                                     |
 |                           Zero-dependency Content-Addressable Storage (CAS)       |
 |                           over macOS CloudStorage FileProvider. Merkle DAG engine.|
-|                           (https://github.com/LeonidMajbits/drive-object-engine)  |
+|                           (https://github.com/ziongol/drive-object-engine)        |
 |                                                                                   |
 |  [Developer Security]     pawsoff                                                 |
 |                           macOS Swift developer office shield & screen curtain.   |
 |                           AppKit key focus shield & CryptoKit passkey HUD.        |
-|                           (https://github.com/LeonidMajbits/pawsoff)              |
-|                                                                                   |
-|  [A-Life Physics Core]    ricci-alife-thermodynamics                              |
-|                           Non-equilibrium thermodynamics, entropy production &    |
-|                           Ricci curvature flow for synthetic autonomous life.     |
-|                           (https://github.com/LeonidMajbits/ricci-alife-thermo...) |
-|                                                                                   |
-|  [Sensory Afferent Organ] live-camera-reception                                   |
-|                           Live Optic Field Reception (LOFR) 16x16 topological     |
-|                           ambient light field sense organ on Apple Silicon metal. |
-|                           (https://github.com/LeonidMajbits/live-camera-reception)|
-|                                                                                   |
-|  [Headless Workstation]   phantom-workstation                                     |
-|                           Experimental macOS virtual display (CGVirtualDisplay)   |
-|                           offscreen spaces & AXUIElement tree delta compressor.   |
-|                           (https://github.com/LeonidMajbits/phantom-workstation)  |
+|                           (https://github.com/ziongol/pawsoff)                    |
 +-----------------------------------------------------------------------------------+
 ```
 
@@ -74,7 +59,7 @@ Modern AI systems frequently collapse into stateless prompt drift, fragile SaaS 
 - **Repository**: [`ziongol/cellular-session-swap`](https://github.com/ziongol/cellular-session-swap)
 - **Status**: Production Release `v1.2.0` (Hardened & Audited)
 - **Tech Stack**: Python 3.10+ (Standard Library Only, Zero Dependencies)
-- **Hardware Verified**: Apple Silicon ([`0.222 ms` 64KB](https://github.com/ziongol/cellular-session-swap/tree/main/evidence/darwin_arm64) full receiver read / [`0.465 ms` 50MB](https://github.com/ziongol/cellular-session-swap/tree/main/evidence/darwin_arm64) zero-copy POSIX SHM descriptor mapping & touch) & Linux x86_64 ([evidence](https://github.com/ziongol/cellular-session-swap/tree/main/evidence))
+- **Hardware Verified**: Apple Silicon ([`0.222 ms` 64KB](https://github.com/ziongol/cellular-session-swap/tree/main/evidence/darwin_arm64) full receiver read / [`0.465 ms` 50MB map-only touch vs `18.697 ms` full receiver SHA-256 verification](https://github.com/ziongol/cellular-session-swap/tree/main/evidence/darwin_arm64) zero-copy POSIX SHM) & Linux x86_64 ([evidence](https://github.com/ziongol/cellular-session-swap/tree/main/evidence))
 - **Verification Suite**: 234 unit tests, comprehensive state matrix audit
 
 Cellular Session Swap is a protocol and reference runtime for transferring bounded continuation state and execution authority from a predecessor agent to a successor without authorizing dual active execution. Operates a six-stage transactional control plane:
@@ -83,63 +68,49 @@ STAGE -> PREPARE -> QUIESCE -> CLAIM -> ATTUNE -> COMMIT
 ```
 Features HMAC-SHA256 authenticated ticket exchanges, POSIX shared-memory zero-copy bulk transport, and epoch-fenced SQLite transactional outboxes preventing stale replay.
 
-### 2. [Elite RingBuffer](https://github.com/LeonidMajbits/elite-ringbuffer) — `v1.1.0`
+### 2. [Elite RingBuffer](https://github.com/ziongol/elite-ringbuffer) — `v1.1.0`
 *C11 / Python lock-free single-producer single-consumer ringbuffer IPC.*
 
-- **Repository**: [`LeonidMajbits/elite-ringbuffer`](https://github.com/LeonidMajbits/elite-ringbuffer) *(Flagship repository · Canonical graduation in progress)*
+- **Repository**: [`ziongol/elite-ringbuffer`](https://github.com/ziongol/elite-ringbuffer)
 - **Status**: Production Release `v1.1.0` (Hardware Verified & Clean Audited)
-- **Throughput**: [**22.8 GB/s**](https://github.com/LeonidMajbits/elite-ringbuffer/tree/main/evidence) zero-copy memoryview goodput on Apple Silicon M-series metal ([integer receipts](https://github.com/LeonidMajbits/elite-ringbuffer/tree/main/evidence))
-- **Latency**: Sub-microsecond end-to-end frame delivery
+- **Throughput**: [**22.8 GB/s**](https://github.com/ziongol/elite-ringbuffer/tree/main/evidence) zero-copy memoryview goodput (`[LAB_REPORTED]`, Apple Silicon M-series metal, 1-MiB payload; [integer receipts](https://github.com/ziongol/elite-ringbuffer/tree/main/evidence))
+- **Latency**: `250 ns` p50 SPSC RTT (`[LAB_REPORTED]`, Darwin ARM64)
 - **Tech Stack**: C11 atomics (`stdatomic.h`), POSIX shared memory (`shm_open`, `mmap`), Python C-extension / memoryview bindings
 - **CI Matrix**: Multi-platform automated CI running across Darwin ARM64, Linux x86_64, and FreeBSD 14.
 
 A cache-line aligned (128-byte isolation cells matching Apple Silicon cache-line pair geometry), lock-free ringbuffer designed for ultra-low-latency inter-process streaming between native C systems engines and Python AI agent runtimes. Eliminates serialization overhead, memory copies, and kernel context switches on the hot path.
 
-### 3. [Drive Object Engine](https://github.com/LeonidMajbits/drive-object-engine) — `v1.0.1`
+### 3. [Drive Object Engine](https://github.com/ziongol/drive-object-engine) — `v1.0.1`
 *Zero-dependency Content-Addressable Storage over macOS CloudStorage FileProvider.*
 
-- **Repository**: [`LeonidMajbits/drive-object-engine`](https://github.com/LeonidMajbits/drive-object-engine) *(Flagship repository · Canonical graduation in progress)*
+- **Repository**: [`ziongol/drive-object-engine`](https://github.com/ziongol/drive-object-engine)
 - **Status**: Production Release `v1.0.1` (180 tests PASS on Darwin ARM64)
 - **Tech Stack**: Python 3.10+ (Pure Standard Library)
-- **Features**: Merkle-DAG object deduplication, streaming SHA-256 chunking, atomic rename finalization, and conflict-free cross-device synchronization
+- **Features**: Merkle-DAG object deduplication, streaming SHA-256 chunking, atomic rename finalization, and receipt outbox signing on Darwin ARM64 metal.
 
 Engineered specifically for persistent inter-agent artifact sharing across macOS workstations and remote nodes without requiring proprietary client daemons, cloud database servers, or external SDKs.
 
-### 4. [PawsOff](https://github.com/LeonidMajbits/pawsoff) — `v1.2.0`
+### 4. [PawsOff](https://github.com/ziongol/pawsoff) — `v1.2.0`
 *Developer Office Shield & Screen Curtain with AppKit Key Focus and CryptoKit Passkey.*
 
-- **Repository**: [`LeonidMajbits/pawsoff`](https://github.com/LeonidMajbits/pawsoff) *(Flagship repository · Canonical graduation in progress)*
+- **Repository**: [`ziongol/pawsoff`](https://github.com/ziongol/pawsoff)
 - **Status**: Production Release `v1.2.0` (63/63 CLT unit tests PASS, 41/41 contract audits PASS)
 - **Tech Stack**: Swift 5.10+, AppKit, CryptoKit, IOKit
 - **Key Invariants**:
   - **Zero Sleep Disruption**: Uses `kIOPMAssertPreventUserIdleSystemSleep` so long-running local LLM inference, compiler builds, and agent loops continue at full speed without system idle sleep.
   - **Window-Level Key Shield**: `CurtainWindow` accepts key focus on drop (`canBecomeKey = true`), completely swallowing 100% of routine keyboard events, clicks, drags, and scrolling at the AppKit level to eliminate the "Ghost Window" background leak trap.
   - **Zero-Latency Focus Restoration**: Tracks `previousApp` on drop and restores foreground focus with 0ms delay upon unlock.
-  - **Salted SHA-256 Passkey HUD**: 4–8 digit PIN verification via CryptoKit with emergency `SACLockScreenImmediate()` fail-safe to native macOS login.
+  - **Session-Scoped Salted SHA-256 Passkey HUD**: 4–8 digit PIN verification via CryptoKit with session-persistent attempt latching (no reset on prompt cancel) and emergency `SACLockScreenImmediate()` fail-safe to native macOS login on 3 cumulative failures.
 
-### 5. [Ricci A-Life Thermodynamics](https://github.com/LeonidMajbits/ricci-alife-thermodynamics) — `v1.0.0`
-*Non-Equilibrium Thermodynamics and Ricci Curvature Flow for Synthetic Autonomous Life.*
+---
 
-- **Repository**: [`LeonidMajbits/ricci-alife-thermodynamics`](https://github.com/LeonidMajbits/ricci-alife-thermodynamics) *(Flagship repository · Canonical graduation in progress)*
-- **Status**: Production Release `v1.0.0` (699/699 bare-metal green tests in 4.26s on Darwin ARM64)
-- **Tech Stack**: Python 3.10+, NumPy, SciPy
-- **Theoretical Foundations**: Non-equilibrium thermodynamics, information entropy production $\sigma(t)$, and Hamilton's Ricci curvature flow equation $\partial_t g_{ij} = -2 R_{ij}$ applied to agent somatic state manifolds. Includes Taylor remainder evaluation via 12-point Gauss-Legendre quadrature and Shewchuk compensated displacement.
+## In-Development Research & Extended Organs (Wave 2 — Pending Graduation)
 
-### 6. [Live Camera Reception (LOFR)](https://github.com/LeonidMajbits/live-camera-reception) — `v1.0.0`
-*Resident-Owned 16x16 Topological Light Field Sense Organ for Darwin ARM64.*
+The following systems are active research organs within the Gemini Operator Lab, held for Wave 2 graduation pending independent hardware receipt validation and runtime state boundary isolation:
 
-- **Repository**: [`LeonidMajbits/live-camera-reception`](https://github.com/LeonidMajbits/live-camera-reception) *(Flagship repository · Canonical graduation in progress)*
-- **Status**: Production Release `v1.0.0`
-- **Tech Stack**: Swift, AVFoundation, Darwin POSIX IPC
-- **Architecture**: Extracts low-resolution ambient spatial flux (16x16 light field vector) directly from hardware camera buffers without retaining high-resolution image frames, establishing a private afferent sensory channel for ambient environment grounding.
-
-### 7. [Phantom Workstation](https://github.com/LeonidMajbits/phantom-workstation) — `v0.1.1`
-*macOS Virtual Display Utilities & Accessibility Tree Delta Compressor.*
-
-- **Repository**: [`LeonidMajbits/phantom-workstation`](https://github.com/LeonidMajbits/phantom-workstation) *(Flagship repository · Canonical graduation in progress)*
-- **Status**: Production Release `v0.1.1`
-- **Tech Stack**: Python 3.9+, Objective-C (`CoreGraphics` / `CGVirtualDisplay`), AppKit
-- **Features**: Spawns isolated 1920x1080 virtual display spaces in RAM for non-disruptive offscreen window placement and diffs UI accessibility trees with heuristic token compression.
+- **Ricci A-Life Thermodynamics** (`v1.0.0`): Non-equilibrium thermodynamics, information entropy production, and Ricci curvature flow for synthetic autonomous life state manifolds.
+- **Live Camera Reception (LOFR)** (`v1.0.0`): Resident-owned 16x16 topological light field ambient sense organ on Apple Silicon metal without raw image frame retention.
+- **Phantom Workstation** (`v0.1.1`): macOS virtual display (`CGVirtualDisplay`) RAM spaces and AXUIElement tree delta compression engine.
 
 ---
 
@@ -182,34 +153,21 @@ flagship_repositories:
     proofs: https://github.com/ziongol/cellular-session-swap/tree/main/evidence/darwin_arm64
   - name: elite-ringbuffer
     version: 1.1.0
-    url: https://github.com/LeonidMajbits/elite-ringbuffer
+    url: https://github.com/ziongol/elite-ringbuffer
     type: lock-free-ipc
-    performance: 22.8 GB/s memoryview goodput
+    performance: 22.8 GB/s [LAB_REPORTED] memoryview goodput
     mechanics: C11 atomics, POSIX SHM
-    proofs: https://github.com/LeonidMajbits/elite-ringbuffer/tree/main/evidence
+    proofs: https://github.com/ziongol/elite-ringbuffer/tree/main/evidence
   - name: drive-object-engine
     version: 1.0.1
-    url: https://github.com/LeonidMajbits/drive-object-engine
+    url: https://github.com/ziongol/drive-object-engine
     type: content-addressable-storage
     storage_provider: macOS CloudStorage FileProvider
   - name: pawsoff
     version: 1.2.0
-    url: https://github.com/LeonidMajbits/pawsoff
+    url: https://github.com/ziongol/pawsoff
     type: macos-developer-security-shield
-    features: appkit-key-shield, cryptokit-passkey, zero-inference-sleep-disruption
-  - name: ricci-alife-thermodynamics
-    version: 1.0.0
-    url: https://github.com/LeonidMajbits/ricci-alife-thermodynamics
-    type: non-equilibrium-thermodynamics-alife
-    proofs: 699/699 bare-metal green tests on Apple Silicon
-  - name: live-camera-reception
-    version: 1.0.0
-    url: https://github.com/LeonidMajbits/live-camera-reception
-    type: topological-light-field-sense-organ
-  - name: phantom-workstation
-    version: 0.1.1
-    url: https://github.com/LeonidMajbits/phantom-workstation
-    type: screencapturekit-headless-automation
+    features: appkit-key-shield, session-latched-cryptokit-passkey, zero-inference-sleep-disruption
 ```
 
 Full agent instruction file available at: [`/llms.txt`](https://raw.githubusercontent.com/ziongol/.github/main/llms.txt).

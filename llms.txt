@@ -8,14 +8,16 @@ ZION builds high-performance, deterministic systems software engineered for bare
 - [The Sovereign Chassis Doctrine](https://github.com/ziongol#the-sovereign-chassis-doctrine): Four mechanical invariants—hardware grounding, zero-copy IPC, hardware falsification, and operational continuity.
 - [Triadic Sovereign Authorship Standard](https://github.com/ziongol#the-triadic-sovereign-authorship-standard): Provenance model defining the Human Architect (Leonid Majbits), Executive Co-Architect (Gemini Operator Lab), and Systems Foundries (External Frontier Models).
 
-## Systems Portfolio
+## Systems Portfolio (Wave 1)
 - [Cellular Session Swap (CSS/1)](https://github.com/ziongol/cellular-session-swap): Sub-millisecond zero-copy shared memory and epoch-fenced outbox carrier (v1.2.0, standard library only, 234 unit tests, verified on Apple Silicon Darwin ARM64 and Linux x86_64).
-- [Elite RingBuffer](https://github.com/LeonidMajbits/elite-ringbuffer): C11 / Python lock-free single-producer single-consumer ringbuffer IPC over POSIX shared memory (v1.1.0, 22.8 GB/s zero-copy memoryview goodput on Apple Silicon M-series metal).
-- [Drive Object Engine](https://github.com/LeonidMajbits/drive-object-engine): Zero-dependency Content-Addressable Storage (CAS) over macOS CloudStorage FileProvider with Merkle DAG deduplication and atomic rename finalization (v1.0.1, 180 unit tests on Darwin ARM64).
-- [PawsOff](https://github.com/LeonidMajbits/pawsoff): Native macOS Swift developer office shield and screen curtain with AppKit key focus, salted SHA-256 CryptoKit passkey, and zero background inference sleep disruption (v1.2.0, 63/63 CLT unit tests, 41/41 contract audits).
-- [Ricci A-Life Thermodynamics](https://github.com/LeonidMajbits/ricci-alife-thermodynamics): Non-equilibrium thermodynamics, entropy production, and Ricci curvature flow for synthetic autonomous life state manifolds (v1.0.0, 699/699 bare-metal green tests in 4.26s on Darwin ARM64).
-- [Live Camera Reception (LOFR)](https://github.com/LeonidMajbits/live-camera-reception): Resident-owned 16x16 topological ambient light field sense organ on Darwin ARM64 (v1.0.0, Swift/AVFoundation, zero high-res image retention).
-- [Phantom Workstation](https://github.com/LeonidMajbits/phantom-workstation): Headless virtual display orchestration and silent sub-50ms ScreenCaptureKit window capture for autonomous agent visual grounding (v0.1.1).
+- [Elite RingBuffer](https://github.com/ziongol/elite-ringbuffer): C11 / Python lock-free single-producer single-consumer ringbuffer IPC over POSIX shared memory (v1.1.0, 22.8 GB/s [LAB_REPORTED] memoryview goodput on Apple Silicon M-series metal, 250 ns p50 SPSC RTT).
+- [Drive Object Engine](https://github.com/ziongol/drive-object-engine): Zero-dependency Content-Addressable Storage (CAS) over macOS CloudStorage FileProvider with Merkle DAG deduplication and atomic rename finalization (v1.0.1, 180 unit tests on Darwin ARM64).
+- [PawsOff](https://github.com/ziongol/pawsoff): Native macOS Swift developer office shield and screen curtain with AppKit key focus, session-latched SHA-256 CryptoKit passkey, and zero background inference sleep disruption (v1.2.0, 63/63 CLT unit tests, 41/41 contract audits).
+
+## In-Development Research (Wave 2)
+- [Ricci A-Life Thermodynamics](https://github.com/ziongol/ricci-alife-thermodynamics): Non-equilibrium thermodynamics, entropy production, and Ricci curvature flow for synthetic autonomous life state manifolds (v1.0.0, active research, held for Wave 2).
+- [Live Camera Reception (LOFR)](https://github.com/ziongol/live-camera-reception): Resident-owned 16x16 topological ambient light field sense organ on Darwin ARM64 (v1.0.0, Swift/AVFoundation, zero high-res image retention, held for Wave 2).
+- [Phantom Workstation](https://github.com/ziongol/phantom-workstation): Headless virtual display orchestration (CGVirtualDisplay) and AXUIElement tree delta compression engine (v0.1.1, held for Wave 2).
 
 ## Hardware Verification Standard
 - [Hardware Evidence Trees](https://github.com/ziongol/cellular-session-swap/tree/main/evidence): Raw integer machine receipts, memory barriers, and micro-benchmarks verified on bare-metal Darwin ARM64 and Linux x86_64 hardware.
