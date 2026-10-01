@@ -74,7 +74,7 @@ Modern AI systems frequently collapse into stateless prompt drift, fragile SaaS 
 - **Repository**: [`ziongol/cellular-session-swap`](https://github.com/ziongol/cellular-session-swap)
 - **Status**: Production Release `v1.2.0` (Hardened & Audited)
 - **Tech Stack**: Python 3.10+ (Standard Library Only, Zero Dependencies)
-- **Hardware Verified**: Apple Silicon ([`0.222 ms` 64KB](https://github.com/ziongol/cellular-session-swap/tree/main/evidence/darwin_arm64) / [`0.465 ms` 50MB](https://github.com/ziongol/cellular-session-swap/tree/main/evidence/darwin_arm64) zero-copy POSIX SHM) & Linux x86_64 ([evidence](https://github.com/ziongol/cellular-session-swap/tree/main/evidence))
+- **Hardware Verified**: Apple Silicon ([`0.222 ms` 64KB](https://github.com/ziongol/cellular-session-swap/tree/main/evidence/darwin_arm64) full receiver read / [`0.465 ms` 50MB](https://github.com/ziongol/cellular-session-swap/tree/main/evidence/darwin_arm64) zero-copy POSIX SHM descriptor mapping & touch) & Linux x86_64 ([evidence](https://github.com/ziongol/cellular-session-swap/tree/main/evidence))
 - **Verification Suite**: 234 unit tests, comprehensive state matrix audit
 
 Cellular Session Swap is a protocol and reference runtime for transferring bounded continuation state and execution authority from a predecessor agent to a successor without authorizing dual active execution. Operates a six-stage transactional control plane:
