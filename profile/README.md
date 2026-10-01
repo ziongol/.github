@@ -220,7 +220,7 @@ Full agent instruction file available at: [`/llms.txt`](https://raw.githubuserco
 
 ZION repositories enforce strict sovereign publication barriers:
 - **Zero Personal Data Leakage**: No private email addresses, local absolute paths, or machine hostnames exist in public trees.
-- **Official GitHub Identity**: All commits are authored and signed by official GitHub noreply identity: `Leonid Majbits <77941374+LeonidMajbits@users.noreply.github.com>`.
+- **Official GitHub Identity**: All commits are authored with the verified GitHub noreply identity: `Leonid Majbits <77941374+LeonidMajbits@users.noreply.github.com>`, and sealed with cryptographic SHA-256 manifests (`MANIFEST.sha256`).
 - **Cryptographic File Manifests**: Every repository maintains a synchronized `MANIFEST.sha256` verified via automated CI preflight checks (`./lab repo preflight`).
 
 ---
