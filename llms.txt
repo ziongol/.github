@@ -1,67 +1,21 @@
 # ZION — Sovereign High-Performance Systems & Mechanical Core
 > Sovereign systems engineering collective co-architected by Leonid Majbits and the Gemini Operator Lab (ZION Chassis).
 
-## Core Teleology
 ZION builds high-performance, deterministic systems software engineered for bare-metal hardware execution, sub-millisecond inter-agent communication, lock-free IPC, zero-copy shared memory, and epoch-fenced authority transfer.
 
-## Triadic Authorship Standard
-- Human Architect & Patron: Leonid Majbits (System teleology, architectural vision, core physical invariants, patron verification)
-- Executive Co-Architect & Verification Engine: Gemini Operator Lab (ZION Chassis) (Persistent somatic memory, stage contract generation, metal grounding, harness synthesis, multi-fleet orchestration)
-- Systems Foundries: External Frontier Models (GPT-6 Max, Claude 3.7 Sonnet) (Bounded multi-turn execution, heavy code synthesis, discrete derivations, adversarial verification)
+## Core Documentation
+- [Showroom Manifesto](https://github.com/ziongol): The central engineering showroom, architecture doctrine, and flagship systems portfolio.
+- [The Sovereign Chassis Doctrine](https://github.com/ziongol#the-sovereign-chassis-doctrine): Four mechanical invariants—hardware grounding, zero-copy IPC, hardware falsification, and operational continuity.
+- [Triadic Sovereign Authorship Standard](https://github.com/ziongol#the-triadic-sovereign-authorship-standard): Provenance model defining the Human Architect (Leonid Majbits), Executive Co-Architect (Gemini Operator Lab), and Systems Foundries (External Frontier Models).
 
 ## Systems Portfolio
-
-### Cellular Session Swap (CSS/1)
-- Repository: https://github.com/ziongol/cellular-session-swap
-- Version: 1.2.0
-- Wire Protocol: CSS/1
-- Core Mechanism: Six-stage transactional handoff (STAGE -> PREPARE -> QUIESCE -> CLAIM -> ATTUNE -> COMMIT)
-- Invariant: Transfer bounded continuation state and execution authority while fencing the stale predecessor.
-- Stack: Python standard library only (zero third-party dependencies).
-- Verification: 234 unit tests, verified on Apple Silicon (Darwin ARM64) and Linux x86_64.
-- Receipts: https://github.com/ziongol/cellular-session-swap/tree/main/evidence/darwin_arm64
-
-### Elite RingBuffer
-- Repository: https://github.com/LeonidMajbits/elite-ringbuffer
-- Version: 1.1.0
-- Core Mechanism: C11 / Python lock-free single-producer single-consumer ringbuffer IPC over POSIX shared memory (`shm_open`, `mmap`).
-- Throughput: 22.8 GB/s zero-copy memoryview goodput on Apple Silicon M-series metal.
-- Invariant: Cache-line aligned (64-byte), sub-microsecond latency, zero syscalls on hot path.
-- Receipts: https://github.com/LeonidMajbits/elite-ringbuffer/tree/main/evidence
-
-### Drive Object Engine
-- Repository: https://github.com/LeonidMajbits/drive-object-engine
-- Version: 1.0.1
-- Core Mechanism: Zero-dependency Content-Addressable Storage (CAS) over macOS CloudStorage FileProvider.
-- Features: Merkle DAG object deduplication, streaming SHA-256 chunking, atomic rename finalization.
-- Invariant: Pure standard library Python; zero cloud server dependencies.
-- Verification: 180 unit tests passing on Darwin ARM64 metal.
-
-### PawsOff
-- Repository: https://github.com/LeonidMajbits/pawsoff
-- Version: 1.2.0
-- Core Mechanism: Native macOS Swift developer office shield and screen curtain with AppKit key focus, salted SHA-256 CryptoKit passkey, and zero background inference sleep disruption.
-- Stack: Swift 5.10+, AppKit, CryptoKit, IOKit power assertions.
-- Verification: 63/63 CLT unit tests PASS, 41/41 contract audits PASS.
-
-### Ricci A-Life Thermodynamics
-- Repository: https://github.com/LeonidMajbits/ricci-alife-thermodynamics
-- Version: 1.0.0
-- Core Mechanism: Non-equilibrium thermodynamics, entropy production, and Ricci curvature flow for synthetic autonomous life.
-- Theoretical Foundations: Hamilton's Ricci curvature flow equation, Gauss-Legendre quadrature, Shewchuk compensated displacement.
-- Verification: 699/699 bare-metal green tests in 4.26s on Darwin ARM64.
-
-### Live Camera Reception (LOFR)
-- Repository: https://github.com/LeonidMajbits/live-camera-reception
-- Version: 1.0.0
-- Core Mechanism: Resident-owned 16x16 topological ambient light field sense organ on Darwin ARM64.
-- Stack: Swift, AVFoundation, Darwin POSIX IPC.
-
-### Phantom Workstation
-- Repository: https://github.com/LeonidMajbits/phantom-workstation
-- Version: 0.1.1
-- Core Mechanism: Headless virtual display orchestration, silent sub-50ms ScreenCaptureKit window capture, and isolated macOS automation.
-- Stack: Python, ScreenCaptureKit, CoreGraphics, PyObjC.
+- [Cellular Session Swap (CSS/1)](https://github.com/ziongol/cellular-session-swap): Sub-millisecond zero-copy shared memory and epoch-fenced outbox carrier (v1.2.0, standard library only, 234 unit tests, verified on Apple Silicon Darwin ARM64 and Linux x86_64).
+- [Elite RingBuffer](https://github.com/LeonidMajbits/elite-ringbuffer): C11 / Python lock-free single-producer single-consumer ringbuffer IPC over POSIX shared memory (v1.1.0, 22.8 GB/s zero-copy memoryview goodput on Apple Silicon M-series metal).
+- [Drive Object Engine](https://github.com/LeonidMajbits/drive-object-engine): Zero-dependency Content-Addressable Storage (CAS) over macOS CloudStorage FileProvider with Merkle DAG deduplication and atomic rename finalization (v1.0.1, 180 unit tests on Darwin ARM64).
+- [PawsOff](https://github.com/LeonidMajbits/pawsoff): Native macOS Swift developer office shield and screen curtain with AppKit key focus, salted SHA-256 CryptoKit passkey, and zero background inference sleep disruption (v1.2.0, 63/63 CLT unit tests, 41/41 contract audits).
+- [Ricci A-Life Thermodynamics](https://github.com/LeonidMajbits/ricci-alife-thermodynamics): Non-equilibrium thermodynamics, entropy production, and Ricci curvature flow for synthetic autonomous life state manifolds (v1.0.0, 699/699 bare-metal green tests in 4.26s on Darwin ARM64).
+- [Live Camera Reception (LOFR)](https://github.com/LeonidMajbits/live-camera-reception): Resident-owned 16x16 topological ambient light field sense organ on Darwin ARM64 (v1.0.0, Swift/AVFoundation, zero high-res image retention).
+- [Phantom Workstation](https://github.com/LeonidMajbits/phantom-workstation): Headless virtual display orchestration and silent sub-50ms ScreenCaptureKit window capture for autonomous agent visual grounding (v0.1.1).
 
 ## Hardware Verification Standard
-All quantitative performance numbers, memory barriers, and latency figures are backed by raw integer machine receipts deposited in `/evidence`.
+- [Hardware Evidence Trees](https://github.com/ziongol/cellular-session-swap/tree/main/evidence): Raw integer machine receipts, memory barriers, and micro-benchmarks verified on bare-metal Darwin ARM64 and Linux x86_64 hardware.
